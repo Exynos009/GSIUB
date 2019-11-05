@@ -9,6 +9,9 @@ import io
 import asyncio
 import time
 import os
+import sys
+from telethon import events, functions, __version__
+from uniborg.util import admin_cmd
 
 if not os.path.isdir("./SAVED"):
      os.makedirs("./SAVED")
