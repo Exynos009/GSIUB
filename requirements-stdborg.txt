@@ -35,3 +35,4 @@ oauth2client
 httplib2
 humanize
 patool
+spotify_token
