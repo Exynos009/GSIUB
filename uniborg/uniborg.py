@@ -84,7 +84,7 @@ class Uniborg(TelegramClient):
         self.me = await self.get_me()
         self.uid = telethon.utils.get_peer_id(self.me)
 
-        self._logger.info(f"Logged in as {self.uid}")
+        self._logger.info(f"lund logged in as {self.uid}")
 
 
     def load_plugin(self, shortname):
@@ -109,7 +109,7 @@ class Uniborg(TelegramClient):
 
         spec.loader.exec_module(mod)
         self._plugins[shortname] = mod
-        self._logger.info(f"Successfully loaded plugin {shortname}")
+        self._logger.info(f"gandu pligon load ho gaya hai = {shortname}")
 
     def remove_plugin(self, shortname):
         name = self._plugins[shortname].__name__
@@ -120,7 +120,7 @@ class Uniborg(TelegramClient):
                 del self._event_builders[i]
 
         del self._plugins[shortname]
-        self._logger.info(f"Removed plugin {shortname}")
+        self._logger.info(f"betichod pligon remove kar hai madarchod = {shortname}")
 
     def await_event(self, event_matcher, filter=None):
         fut = asyncio.Future()
