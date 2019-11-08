@@ -135,6 +135,14 @@ class Config(object):
     CHROME_BIN = os.environ.get("CHROME_BIN", None)
     #
     RAVANA_LEELA = os.environ.get("RAVANA_LEELA", None)
+    #
+    SPOTIFY_USERNAME = os.environ.get("SPOTIFY_USERNAME", None)
+    #
+    SPOTIFY_PASS = os.environ.get("SPOTIFY_PASS", None)
+    #
+    DEFAULT_NAME = os.environ.get("DEFAULT_NAME", None)
+    #
+    SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX", None)
 
 class Production(Config):
     LOGGER = False
