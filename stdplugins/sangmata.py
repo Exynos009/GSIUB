@@ -136,8 +136,8 @@ async def _(event):
 
                 
                 
-    @borg.on(admin_cmd("urban ?(.*)"))
-    async def _(event):
+@borg.on(admin_cmd("urban ?(.*)"))
+async def _(event):
     if event.fwd_from:
         return 
     if not event.reply_to_msg_id:
