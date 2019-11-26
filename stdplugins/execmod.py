@@ -809,7 +809,7 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(admin_cmd(pattern="dadjokes"))
+@borg.on(admin_cmd(pattern="dadjoke"))
 async def _(event):
     if event.fwd_from:
         return
@@ -817,7 +817,7 @@ async def _(event):
     PROCESS_RUN_TIME = 100
 #    dirname = event.pattern_match.group(1)
 #    tempdir = "localdir"
-    cmd = "dadjoke--reddit"
+    cmd = "dadjoke --reddit"
 #    if dirname == tempdir:
 	
     eply_to_id = event.message.id
@@ -827,7 +827,7 @@ async def _(event):
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    OUTPUT = f"**[Ravana's](tg://need_update_for_some_feature/) , fortune teller for Your Pornhub...**\n"
+    OUTPUT = f"**[Ravana's](tg://need_update_for_some_feature/) , dad jokes for Your Pornhub...**\n"
     stdout, stderr = await process.communicate()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:
