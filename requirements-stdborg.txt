@@ -38,3 +38,4 @@ patool
 spotify_token
 fast.com
 names
+random_cli
