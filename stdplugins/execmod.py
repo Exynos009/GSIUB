@@ -699,7 +699,7 @@ async def _(event):
     PROCESS_RUN_TIME = 100
 #    dirname = event.pattern_match.group(1)
 #    tempdir = "localdir"
-    cmd = "names"
+    cmd = "fast"
 #    if dirname == tempdir:
 	
     eply_to_id = event.message.id
