@@ -41,3 +41,4 @@ names
 random_cli
 pytuneteller
 dadjokes-cli
+jotquote
