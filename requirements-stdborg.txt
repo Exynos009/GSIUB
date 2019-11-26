@@ -36,3 +36,5 @@ httplib2
 humanize
 patool
 spotify_token
+fast.com
+names
