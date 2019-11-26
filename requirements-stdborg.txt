@@ -42,3 +42,4 @@ random_cli
 pytuneteller
 dadjokes-cli
 jotquote
+csvfaker
