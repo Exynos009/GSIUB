@@ -43,3 +43,4 @@ pytuneteller
 dadjokes-cli
 jotquote
 csvfaker
+git
