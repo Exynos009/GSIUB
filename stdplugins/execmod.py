@@ -932,7 +932,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    DELAY_BETWEEN_EDITS = 0.3
+    DELAY_BETWEEN_EDITS = 100
     PROCESS_RUN_TIME = 100
 #    dirname = event.pattern_match.group(1)
 #    tempdir = "localdir"
