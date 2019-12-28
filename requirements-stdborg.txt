@@ -1,7 +1,7 @@
 aiofiles
 aiohttp
 aria2p
-beautifulsoup4=4.8.1
+beautifulsoup4==4.8.1
 coffeehouse
 cowpy
 cfscrape
