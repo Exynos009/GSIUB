@@ -1,7 +1,7 @@
 aiofiles
 aiohttp
 aria2p
-beautifulsoup4
+beautifulsoup4=4.8.2
 coffeehouse
 cowpy
 cfscrape
@@ -45,3 +45,6 @@ jotquote
 csvfaker
 gitpython
 heroku3
+auto-openvpn
+kwot
+programmingquotes
