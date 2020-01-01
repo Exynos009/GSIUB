@@ -30,8 +30,7 @@ from telethon.tl.types import (
     DocumentAttributeVideo,
     InputMediaUploadedDocument,
     InputPeerNotifySettings,
-    InputGifSetID,
-    InputGifSetShortName,
+    InputMediaGifExternal,
     MessageMediaPhoto
 )
 
