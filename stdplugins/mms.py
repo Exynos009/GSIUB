@@ -21,7 +21,7 @@ import math
 import os
 import requests
 import zipfile
-from telethon.errors.rpcerrorlist import GifsetInvalidError
+from telethon.errors.rpcerrorlist import GifIdInvalidError
 from telethon.errors import MessageNotModifiedError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from telethon.tl.functions.messages import GetGifSetRequest
