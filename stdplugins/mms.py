@@ -27,7 +27,7 @@ from telethon.tl.functions.account import UpdateNotifySettingsRequest
 from telethon.tl.functions.messages import GetSavedGifsRequest
 from telethon.tl.types import (
     DocumentAttributeFilename,
-    DocumentAttributeGif,
+    DocumentAttributeVideo,
     InputMediaUploadedDocument,
     InputPeerNotifySettings,
     InputGifSetID,
