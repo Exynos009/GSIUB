@@ -24,7 +24,7 @@ import zipfile
 from telethon.errors.rpcerrorlist import GifIdInvalidError
 from telethon.errors import MessageNotModifiedError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
-from telethon.tl.functions.messages import GetGifSetRequest
+from telethon.tl.functions.messages import GetSavedGifsRequest
 from telethon.tl.types import (
     DocumentAttributeFilename,
     DocumentAttributeGif,
