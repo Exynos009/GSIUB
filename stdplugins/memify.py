@@ -155,4 +155,4 @@ def resize_image(image, save_locaton):
         im = im.resize(sizenew)
     else:
         im.thumbnail(maxsize)
-    im.save(save_locaton, "PNG")
+    im.save(save_locaton, "WEBP")
