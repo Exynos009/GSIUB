@@ -47,7 +47,7 @@ async def _(event):
     if event.fwd_from:
         return 
     if not event.reply_to_msg_id:
-       await event.edit("`Syntax: reply to an image with .mms` 'text on top' ; 'text on bottom' ")
+       await event.edit("`Syntax: reply to an image with .mmf` 'text on top' ; 'text on bottom' ")
        return
     reply_message = await event.get_reply_message() 
     if not reply_message.media:
@@ -62,7 +62,7 @@ async def _(event):
        await event.edit("```Reply to actual users message.```")
        return
     else:
-     await event.edit("```Transfiguration Time! Mwahaha memifying this image! (」ﾟﾛﾟ)｣ ```")
+     await event.edit("```Editing Image... ```")
     
     async with borg.conversation("@MemeAutobot") as bot_conv:
           try:
@@ -78,7 +78,7 @@ async def _(event):
           if response.text.startswith("Forward"):
               await event.edit("```can you kindly disable your forward privacy settings for good nibba?```")
           if "Okay..." in response.text:
-            await event.edit("```NANI?! This is not an image! This will take sum tym to convert to image owo```")
+            await event.edit("```💫Converting To Image Format💫```")
             thumb = None
             if os.path.exists(thumb_image_path):
                 thumb = thumb_image_path
@@ -86,7 +86,7 @@ async def _(event):
             if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
                 os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
             if event.reply_to_msg_id:
-                file_name = "meme.png"
+                file_name = "meme.webp"
                 reply_message = await event.get_reply_message()
                 to_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
                 downloaded_file_name = os.path.join(to_download_directory, file_name)
@@ -109,7 +109,7 @@ async def _(event):
             response = await bot_conv.get_response()
             await borg.send_file(event.chat_id, response.media)
             await event.delete()
-            await borg.send_message(event.chat_id, "`10 Points to Griffindor!`")
+            await borg.send_message(event.chat_id, "`💥💥DONE💥💥`")
           elif not is_message_image(reply_message):
             await event.edit("Invalid message type. Plz choose right message type u NIBBA.")
             return
