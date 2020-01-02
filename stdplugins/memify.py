@@ -55,7 +55,7 @@ async def _(event):
        return
     chat = "@MemeAutobot"
     sender = reply_message.sender
-    file_ext_ns_ion = "@memetime.png"
+    file_ext_ns_ion = "@memetime.webp"
     file = await borg.download_file(reply_message.media)
     uploaded_gif = None
     if reply_message.sender.bot:
@@ -86,7 +86,7 @@ async def _(event):
             if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
                 os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
             if event.reply_to_msg_id:
-                file_name = "meme.webp"
+                file_name = "meme.jpg"
                 reply_message = await event.get_reply_message()
                 to_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
                 downloaded_file_name = os.path.join(to_download_directory, file_name)
