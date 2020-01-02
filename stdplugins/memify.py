@@ -60,7 +60,7 @@ async def _(event):
        await event.edit("```Reply to actual users message.```")
        return
     else:
-     await event.edit("```Transfiguration Time! Mwahaha memifying this image! (」ﾟﾛﾟ)｣ ```")
+     await event.edit("```💫Uploading File💫 ```")
     
     async with borg.conversation("@MemeAutobot") as bot_conv:
           try:
@@ -76,7 +76,7 @@ async def _(event):
           if response.text.startswith("Forward"):
               await event.edit("```can you kindly disable your forward privacy settings for good nibba?```")
           if "Okay..." in response.text:
-            await event.edit("```🤨 NANI?! This is not an image! This will take sum tym to convert to image owo 🧐```")
+            await event.edit("```🔴File is not image format, converting to image🔴```")
             thumb = None
             if os.path.exists(thumb_image_path):
                 thumb = thumb_image_path
@@ -121,7 +121,7 @@ async def _(event):
                 # Courtesy: @A_Dark_Princ3
             )
             await event.delete()
-            await borg.send_message(event.chat_id, "`☠️☠️10 Points to Griffindor!🔥🔥`")
+            await borg.send_message(event.chat_id, "**💥💥Uploaded💥💥**")
           elif not is_message_image(reply_message):
             await event.edit("Invalid message type. Plz choose right message type u NIBBA.")
             return
