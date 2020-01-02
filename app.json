@@ -126,6 +126,14 @@
       "description": "specify command handler that should be used for the plugins. This should be a valid \"regex\" pattern",
       "required": false
     },
+    "HEROKU_APP_NAME": {
+      "description": "heroku app name for .update",
+      "required": false
+    },
+    "HEROKU_API_KEY": {
+      "description": "get it from heroku settings",
+      "required": false
+    },
     "SUDO_USERS": {
       "description": "Makes Your Account Stable.",
       "value": "138312364",
