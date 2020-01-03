@@ -289,7 +289,7 @@ async def _(event):
 
         return
 
-    animation_interval = 1
+    animation_interval = 2
 
     animation_ttl = range(0, 6)
 
@@ -311,7 +311,7 @@ async def _(event):
 
             "‎😁",
 
-            "__**Fair & Lovely GeNg Is BeHiNd You....**__"
+            "**Fair & Lovely GeNg Is BeHiNd You....**"
 
         ]
 
