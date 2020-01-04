@@ -18,7 +18,7 @@ class Baba:
     logger.setLevel(logging.DEBUG)
 
     @borg.on(admin_cmd("baba ?(.*)"))
-    async def process(msg, reply, client):
+    async def process(event):
         if not os.path.isdir(".tmp"):
             os.mkdir(".tmp", 0o755)
             urllib.request.urlretrieve(
@@ -43,7 +43,7 @@ class Baba:
         mid = Image.open(".tmp/mid.jpg", "r").convert('RGBA')
         bottom = Image.open(".tmp/bottom.jpg", "r").convert('RGBA')
 
-        msg = reply.message
+        msg = event.message
         msg = msg.replace("\n", "\\\\n")
         text = []
         for i in textwrap.wrap(msg, 43):
@@ -54,7 +54,7 @@ class Baba:
             mid = mid.resize((mid.width, midh + 40))
             midh += 40
 
-        dlpfp = await client.download_profile_photo(reply.sender_id)
+        dlpfp = await client.download_profile_photo(event.sender_id)
         paste = Image.open(dlpfp)
         os.remove(dlpfp)
         pfp = Image.open(".tmp/pfp.jpg")
@@ -88,8 +88,8 @@ class Baba:
         font = ImageFont.truetype(".tmp/Roboto-Medium.ttf", 43)
         font2 = ImageFont.truetype(".tmp/Roboto-Regular.ttf", 33)
 
-        lname = "" if not reply.sender.last_name else reply.sender.last_name
-        tot = reply.sender.first_name + " " + lname
+        lname = "" if not event.sender.last_name else event.sender.last_name
+        tot = event.sender.first_name + " " + lname
 
         draw.text((pfp.width + 70, 40), tot, font=font, fill='#E9967A')
 
@@ -103,8 +103,8 @@ class Baba:
     async def babaxxx(message):
         """Converts the replied message into an independent sticker"""
         await message.delete()
-        reply = await message.get_reply_message()
-        res, canvas = await Baba.process(reply.message, reply, message.client)
+        event = await message.get_event_message()
+        res, canvas = await Baba.process(event.message, event, message.client)
         if not res:
             return
         canvas.save('.tmp/done.webp')
