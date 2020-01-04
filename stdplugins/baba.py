@@ -12,7 +12,7 @@ from uniborg.util import admin_cmd
 import asyncio
 import shutil
 
-class Quote:
+class Baba:
 
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
