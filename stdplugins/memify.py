@@ -76,7 +76,7 @@ async def _(event):
           if response.text.startswith("Forward"):
               await event.edit("```can you kindly disable your forward privacy settings for good nibba?```")
           if "Okay..." in response.text:
-            await event.edit("```🔴File is not image format, converting to image🔴```")
+            await event.edit("```⚡File is not image format, converting to image Format⚡```")
             thumb = None
             if os.path.exists(thumb_image_path):
                 thumb = thumb_image_path
@@ -117,7 +117,7 @@ async def _(event):
                 event.chat_id,
                 requires_file_name,
                 supports_streaming=False,
-                caption="Userbot: Powered by @x-tra-telegram",
+                caption="beware!! bhabhi lover is here...",
                 # Courtesy: @A_Dark_Princ3
             )
             await event.delete()
