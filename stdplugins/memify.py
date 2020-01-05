@@ -77,6 +77,7 @@ async def _(event):
               await event.edit("```can you kindly disable your forward privacy settings for good nibba?```")
           if "Okay..." in response.text:
             await event.edit("```⚡File is not image format, converting to image Format⚡```")
+            await event.delete()
             thumb = None
             if os.path.exists(thumb_image_path):
                 thumb = thumb_image_path
