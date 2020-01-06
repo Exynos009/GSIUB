@@ -143,6 +143,8 @@ class Config(object):
     DEFAULT_NAME = os.environ.get("DEFAULT_NAME", None)
     #
     SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX", None)
+    #
+    API_TOKEN = os.environ.get("API_TOKEN", None)
 
 class Production(Config):
     LOGGER = False
