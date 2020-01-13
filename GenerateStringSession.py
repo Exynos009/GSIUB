@@ -7,12 +7,12 @@
 from telethon.sync import TelegramClient
 from telethon.sessions import StringSession
 
-print("""Please go-to my.telegram.org
-Login using your Telegram account
-Click on API Development Tools
-Create a new application, by entering the required details""")
-APP_ID = int(input("Enter APP ID here: "))
-API_HASH = input("Enter API HASH here: ")
+print("""Aa gaye Betichod string generate karne. lodu use ==>> my.telegram.com (vpn use karna) <==
+Apna Telegram Account login kar btc
+Click on API Development Tools Blah Blah Maa ki chu
+Create a new application, by entering the required details Maa ka bhosda""")
+APP_ID = int(input("Madarchod Enter APP ID here: "))
+API_HASH = input("Gandu ab API HASH daal: ")
 
 with TelegramClient(StringSession(), APP_ID, API_HASH) as client:
     print(client.session.save())
