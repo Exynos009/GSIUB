@@ -500,4 +500,4 @@ async def _(event):
         except Exception as e:
             await mone.edit(f"Exception occurred while uploading to gDrive {e}")
     else:
-        await mone.edit("File Not found in local server. Give me a file path :
+        await mone.edit("File Not found in local server. Give me a file path :((")
