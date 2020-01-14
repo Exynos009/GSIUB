@@ -7,7 +7,8 @@
 from telethon.sync import TelegramClient
 from telethon.sessions import StringSession
 
-print("""Aa gaye Betichod string generate karne. lodu use ==>> my.telegram.com (vpn use karna) <==
+print("""Aa gaye Betichod string generate karne. 
+lodu use ==>> my.telegram.com (vpn use karna) <<==
 Apna Telegram Account login kar btc
 Click on API Development Tools Blah Blah Maa ki chu
 Create a new application, by entering the required details Maa ka bhosda""")
