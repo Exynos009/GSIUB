@@ -1,6 +1,7 @@
 """Upload link to gDrive
 Syntax:
-.glink"""
+.glink = shows link
+.ghlink = hides link"""
 
 # The entire code given below is verbatim copied from
 # https://github.com/cyberboysumanjay/Gdrivedownloader/blob/master/gdrive_upload.py
@@ -139,7 +140,7 @@ async def download(dryb):
         # Sometimes API fails to retrieve starting URI, we wrap it.
         try:
             g_drive_link = await upload_file(http, required_file_name, file_name, mime_type, dryb)
-            await dryb.edit(f"File:`{required_file_name}`\nHas Successfully Uploaded to : [Google Drive]({g_drive_link})")
+            await dryb.edit(f"**🔥Encrypted G-Link Mode🔥** \nFile:`{required_file_name}`\nHas Successfully Uploaded to : [Encrypted Google Drive Section]({g_drive_link})")
         except Exception as e:
             await dryb.edit(f"Error while uploading to Google Drive\nError Code:\n`{e}`")
 
