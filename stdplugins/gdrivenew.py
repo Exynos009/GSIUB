@@ -1,6 +1,7 @@
 """Upload local Files to gDrive
 Syntax:
 .gdrive
+.ghdrive (does not show link)
 .sdrive
 .gdir
 .dfolder
@@ -496,7 +497,7 @@ async def _(event):
         # Sometimes API fails to retrieve starting URI, we wrap it.
         try:
             g_drive_link = await upload_file(http, required_file_name, file_name, mime_type, mone, G_DRIVE_F_PARENT_ID)
-            await mone.edit(f"Here is your Google Drive link: **Hidden Link**")
+            await mone.edit(f"**🔥Encrypted G-Drive🔥** \n Here is your Google Drive link: **Hidden Link**")
         except Exception as e:
             await mone.edit(f"Exception occurred while uploading to gDrive {e}")
     else:
