@@ -48,3 +48,4 @@ heroku3
 auto-openvpn
 kwot
 programmingquotes
+PyPDF2
