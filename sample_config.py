@@ -145,6 +145,8 @@ class Config(object):
     SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX", None)
     #
     API_TOKEN = os.environ.get("API_TOKEN", None)
+    #
+    watermark_path = os.environ.get("watermark_path", None)
 
 class Production(Config):
     LOGGER = False
