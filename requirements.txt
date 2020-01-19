@@ -11,3 +11,4 @@ aria2p
 chatterbot
 chatterbot_corpus
 -r ./requirements-stdborg.txt
+httplib2==0.15.0
