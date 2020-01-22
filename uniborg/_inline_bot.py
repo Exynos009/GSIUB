@@ -76,10 +76,10 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 buttons=buttons,
                 link_preview=True
             )
-        elif query.startswith("tb_btn"):
+        elif query.startswith("choot"):
             result = builder.article(
-                "Button Parser © @UniBorg",
-                text=f"powered by @UniBorg",
+                "@r4v4n4: Bhagwaan Sabko GF De",
+                text=f"[Choot](https://telegra.ph/file/019a2eab3d66d39c92a75.mp4)",
                 buttons=[],
                 link_preview=True
             )
