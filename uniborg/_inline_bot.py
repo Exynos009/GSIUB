@@ -90,6 +90,14 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 buttons=[],
                 link_preview=True
             )
+        elif query.startswith("repo"):
+            result = builder.article(
+                "@r4v4n4: yeh hai button deploy kar le",
+                text=f"Ganja Sutta on the floor",
+                buttons=[
+                    [custom.Button.url("👤Click on the button to deploy pornhub repo👤", "https://github.com/ravana69/Pornhub")],
+                link_preview=True
+            )
         else:
             result = builder.article(
                 "© @UniBorg",
