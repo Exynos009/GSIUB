@@ -361,3 +361,45 @@ async def _(event):
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 6])
+
+            
+            
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+
+async def _(event):
+
+    if event.fwd_from:
+
+        return
+
+    animation_interval = 2
+
+    animation_ttl = range(0, 6)
+
+    input_str = event.pattern_match.group(1)
+
+    if input_str == "server":
+
+        await event.edit(input_str)
+
+        animation_chars = [
+
+            "===================\n      Server Details  \n===================\n\n\n=>>>   CPU   <<<=\n\n    🔹current_freq: 2500.09MHz\n    🔹total_usage: 68.8%\n\n    |████████▋    |\n\n    🔹cpu core\n\n        🔹core_0_usage: 86.9%\n        🔹current_freq: 2500.09MHz\n        |██████████▉  |\n       \n=>>>   RAM   <<<=\n\n    🔹free: 8.13GB\n    🔹used: 33.77GB\n    🔹total: 60.0GB\n    \n    |███████     |\n\n\n=>>>   DISK   <<<=\n\n    🔹free: 224.12GB\n    🔹used: 131.84GB\n    🔹total: 375.02GB\n    🔹usage: 37.0%\n\n    |████▍        |\n\n\n=>>>   NETWORK   <<<=\n\n    🔹sent: 158.98GB\n    🔹recv: 188.43GB\n    🔹sent_packets: 84518799\n    🔹recv_packets: 159720314\n\n\n===================\n",
+
+            "🙉",
+
+            "🙈",
+
+            "🙊",
+
+            "🖕‎🐵🖕",
+
+            "**Harami GeNg Is BeHiNd You....**"
+
+        ]
+
+        for i in animation_ttl:
+
+            await asyncio.sleep(animation_interval)
+
+            await event.edit(animation_chars[i % 6])
