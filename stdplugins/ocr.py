@@ -1,9 +1,9 @@
 """Optical Character Recognition by OCR.Space
 Syntax: .ocr <LangCode>
 Available Languages: .ocrlanguages"""
-from telethon import events
 import json
 import os
+from PIL import Image
 import requests
 from uniborg.util import admin_cmd
 
@@ -64,7 +64,7 @@ def progress(current, total):
         current, total, (current / total) * 100))
 
 
-@borg.on(admin_cmd("ocrlanguages"))
+@borg.on(admin_cmd(pattern="ocrlanguages"))
 async def get_ocr_languages(event):
     if event.fwd_from:
         return
@@ -97,7 +97,7 @@ async def get_ocr_languages(event):
     await event.edit(str(a))
 
 
-@borg.on(admin_cmd("ocr (.*)"))
+@borg.on(admin_cmd(pattern="ocr (.*)"))
 async def parse_ocr_space_api(event):
     if event.fwd_from:
         return
@@ -110,7 +110,10 @@ async def parse_ocr_space_api(event):
         Config.TMP_DOWNLOAD_DIRECTORY,
         progress_callback=progress
     )
+    if downloaded_file_name.endswith((".webp")):
+        downloaded_file_name = conv_image(downloaded_file_name)
     test_file = ocr_space_file(filename=downloaded_file_name, language=lang_code)
+    ParsedText = "hmm"
     try:
         ParsedText = test_file["ParsedResults"][0]["ParsedText"]
         ProcessingTimeInMilliseconds = str(int(test_file["ProcessingTimeInMilliseconds"]) // 1000)
@@ -120,3 +123,12 @@ async def parse_ocr_space_api(event):
         await event.edit("Read Document in {} seconds. \n{}".format(ProcessingTimeInMilliseconds, ParsedText))
     os.remove(downloaded_file_name)
     await event.edit(ParsedText)
+
+
+def conv_image(image):
+    im = Image.open(image)
+    im.save(image, "PNG")
+    new_file_name = image + ".png"
+    os.rename(image, new_file_name)
+    return new_file_name
+
