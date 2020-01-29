@@ -8,9 +8,12 @@ from googletrans import Translator
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("tr ?(.*)"))
+@borg.on(admin_cmd(pattern="tr ?(.*)"))
 async def _(event):
     if event.fwd_from:
+        return
+    if "trim" in event.raw_text:
+        # https://t.me/c/1220993104/192075
         return
     input_str = event.pattern_match.group(1)
     if event.reply_to_msg_id:
