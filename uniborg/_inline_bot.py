@@ -102,18 +102,18 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         elif query.startswith("imdb"):
             result = builder.article(
                 "@r4v4n4: yeh hai button deploy kar le",
-                text="**​️Title:** Choot Ki Raani (1969)
-                Rating ⭐️: 10 / 10
-                (5.5 based on 7,610 user ratings) | U/A |
-                Release Info: 14 Feb 1969 (India)
-                Genre: 🌋 #Adventure 🤣 #Comedy #Family
-                Language:  #Bhojpuri #English
-                Country of Origin:  #INDIA
-                Story Line: A young man (Ravana) moves from Bihar to Florida with his dick, where he's compelled to engage in a sux to protect a population of endangered Choots.
-                Director:  Ravana 
-                Writers:  Ravana 
-                Stars:  Ravana 
-                [Read More ...](https://da.gd/BPWif)",
+                text=f"**​️Title:** Choot Ki Raani (1969)
+Rating ⭐️: 10 / 10
+(5.5 based on 7,610 user ratings) | U/A |
+Release Info: 14 Feb 1969 (India)
+Genre: 🌋 #Adventure 🤣 #Comedy #Family
+Language:  #Bhojpuri #English
+Country of Origin:  #INDIA
+Story Line: A young man (Ravana) moves from Bihar to Florida with his dick, where he's compelled to engage in a sux to protect a population of endangered Choots.
+Director:  Ravana 
+Writers:  Ravana 
+Stars:  Ravana 
+[Read More ...](https://da.gd/BPWif)",
                 buttons=[
                     [custom.Button.url("▶️IMDB Trailer", "https://github.com/ravana69/Pornhub")],
                 ],
