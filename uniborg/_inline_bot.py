@@ -86,7 +86,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         elif query.startswith("bhoot"):
             result = builder.article(
                 "@r4v4n4: Bhagwaan Sabko GF De",
-                text=f"[bhoot](https://telegra.ph/file/019a2eab3d66d39c92a75.mp4)",
+                text=f"[bhoot](https://da.gd/ovpt5)",
                 buttons=[],
                 link_preview=True
             )
