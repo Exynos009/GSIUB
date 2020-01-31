@@ -101,7 +101,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             )
         elif query.startswith("imdb"):
             result = builder.article(
-                "@r4v4n4: yeh hai button deploy kar le",
+                "@r4v4n4: IMDB",
                 text="""**Title:** Choot Ki Raani (1969)
 **Rating ⭐️:** 10 / 10
 (5.5 based on 7,610 user ratings) | U | 0h 69min |
@@ -109,10 +109,10 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 **Genre:** 🌋 #Adventure 🤣 #Comedy #Family
 **Language:**  #Bhojpuri #English
 **Country of Origin:**  #India
-**Story Line:** A young man [Ravana](https://da.gd/0ttq5) moves from Bihar to Florida with his dick, where he's compelled to engage in a sux to protect a population of endangered Choots.
-**Director:** [Ravana](https://da.gd/0ttq5) 
-**Writers:** [Ravana](https://da.gd/0ttq5) 
-**Stars:**  Ravana 
+**Story Line:** A young man Ravana moves from Bihar to Florida with his dick, where he's compelled to engage in a sux to protect a population of endangered Choots.
+**Director:** Ravana @r4v4n4
+**Writers:** Ravana @r4v4n4
+**Stars:**  Ravana @r4v4n4
 [Read More ...](https://da.gd/qGtPI)""",
                 buttons=[
                     [custom.Button.url("Open On IMDB ▶️", "https://da.gd/BPWif")]
