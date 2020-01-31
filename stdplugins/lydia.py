@@ -41,7 +41,7 @@ async def lydia_disable_enable(event):
         reply_msg = await event.get_reply_message()
         user_id = reply_msg.from_id
         chat_id = event.chat_id
-        await event.edit("hoi")
+        await event.edit("hoi :)")
         if input_str == "e":
             session = api_client.create_session()
             logger.info(session)
@@ -49,7 +49,7 @@ async def lydia_disable_enable(event):
             await event.edit(f"hi :)")
         elif input_str == "d":
             logger.info(remove_s(user_id, chat_id))
-            await event.edit(f"__**signal lost**__")
+            await event.edit(f"__signal lost__")
         elif input_str == "l":
             lsts = get_all_s()
             if len(lsts) > 0:
