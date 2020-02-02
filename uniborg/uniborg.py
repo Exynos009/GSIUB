@@ -120,7 +120,7 @@ class Uniborg(TelegramClient):
                 del self._event_builders[i]
 
         del self._plugins[shortname]
-        self._logger.info(f"betichod pligon remove kar hai madarchod = {shortname}")
+        self._logger.info(f"betichod pligon remove kar diya hai madarchod = {shortname}")
 
     def await_event(self, event_matcher, filter=None):
         fut = asyncio.Future()
