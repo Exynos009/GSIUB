@@ -470,3 +470,56 @@ async def _(event):
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 14])
+
+
+@borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
+
+async def _(event):
+
+    if event.fwd_from:
+
+        return
+
+    animation_interval = 1
+
+    animation_ttl = range(0, 13)
+
+    input_str = event.pattern_match.group(1)
+
+    if input_str == "cnt":
+
+        await event.edit(input_str)
+
+        animation_chars = [
+
+            "🔟",
+
+            "9️⃣",
+
+            "8️⃣",
+
+            "7️⃣",
+
+            "6️⃣",
+
+            "5️⃣",
+
+            "4️⃣",
+
+            "3️⃣",
+
+            "2️⃣",
+
+            "1️⃣",
+
+            "0️⃣",
+
+            "🆘"
+
+        ]
+
+        for i in animation_ttl:
+
+            await asyncio.sleep(animation_interval)
+
+            await event.edit(animation_chars[i % 13])
