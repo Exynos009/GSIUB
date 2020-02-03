@@ -24,6 +24,9 @@ Syntax:
 
  .dyno <type billing>
 
+ .lmkp <type name of place as on indiankanoon.com>
+
+ .lmki <Type name of item as on indiankanoon.com>
 
 
 
@@ -496,6 +499,92 @@ async def _(event):
 
 
         await event.edit("Let me **dyno** that for you:\n👉 [{}]({})\n`Thank me later 😉` ".format(input_str,response_api.rstrip()))
+
+
+
+    else:
+
+
+
+        await event.edit("Something went wrong. Please try again later.")
+
+
+@borg.on(admin_cmd(pattern="lmkp (.*)"))
+
+
+
+async def _(event):
+
+
+
+    if event.fwd_from:
+
+
+
+        return
+
+
+
+    input_str = event.pattern_match.group(1)
+
+
+
+    sample_url = "https://da.gd/s?url=https://indiankanoon.org/search/?formInput={}+sortby%3Amostrecent".format(input_str.replace(" ","+"))
+
+
+
+    response_api = requests.get(sample_url).text
+
+
+
+    if response_api:
+
+
+
+        await event.edit("Let me **Indiankanoon.com : Place** that for you:\n👉 [{}]({})\n`Thank me later 😉` ".format(input_str,response_api.rstrip()))
+
+
+
+    else:
+
+
+
+        await event.edit("Something went wrong. Please try again later.")
+
+
+@borg.on(admin_cmd(pattern="lmki (.*)"))
+
+
+
+async def _(event):
+
+
+
+    if event.fwd_from:
+
+
+
+        return
+
+
+
+    input_str = event.pattern_match.group(1)
+
+
+
+    sample_url = "https://da.gd/s?url=https://indiankanoon.org/search/?formInput={}+sortby%3Amostrecent".format(input_str.replace(" ","+"))
+
+
+
+    response_api = requests.get(sample_url).text
+
+
+
+    if response_api:
+
+
+
+        await event.edit("Let me **Indiankanoon.com : Item** that for you:\n👉 [{}]({})\n`Thank me later 😉` ".format(input_str,response_api.rstrip()))
 
 
 
