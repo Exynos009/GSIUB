@@ -28,14 +28,9 @@ Syntax:
 
  .lmki <Type name of item as on indiankanoon.com>
 
-
+ .gem <Type name of item as on gem.gov.in>
 
 """
-
-
-
-
-
 
 
 from telethon import events
@@ -55,13 +50,6 @@ import json
 
 
 from uniborg.util import admin_cmd
-
-
-
-
-
-
-
 
 
 
@@ -585,6 +573,49 @@ async def _(event):
 
 
         await event.edit("Let me **Indiankanoon.com : Item** that for you:\n👉 [{}]({})\n`Thank me later 😉` ".format(input_str,response_api.rstrip()))
+
+
+
+    else:
+
+
+
+        await event.edit("Something went wrong. Please try again later.")
+
+
+@borg.on(admin_cmd(pattern="gem (.*)"))
+
+
+
+async def _(event):
+
+
+
+    if event.fwd_from:
+
+
+
+        return
+
+
+
+    input_str = event.pattern_match.group(1)
+
+
+
+    sample_url = "https://da.gd/s?url=https://mkp.gem.gov.in/search?q={}&sort_type=created_at_desc&_xhr=1".format(input_str.replace(" ","+"))
+
+
+
+    response_api = requests.get(sample_url).text
+
+
+
+    if response_api:
+
+
+
+        await event.edit("Let me **gem.gov.in** that for you:\n👉 [{}]({})\n`Thank me later 😉` ".format(input_str,response_api.rstrip()))
 
 
 
