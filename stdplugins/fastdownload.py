@@ -44,7 +44,7 @@ EDIT_SLEEP_TIME_OUT = 10
 
 
 
-@borg.on(admin_cmd(pattern="ariaurl ?(.*)"))
+@borg.on(admin_cmd(pattern="url ?(.*)"))
 
 async def magnet_download(event):
 
