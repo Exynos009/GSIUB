@@ -77,8 +77,8 @@ def gdrive(url: str) -> str:
         file_id = link.split('/')[-2]
     elif link.find("open?id=") != -1:
         file_id = link.split("open?id=")[1].strip()
-    elif link.find("uc?id=") != -1:
-        file_id = link.split("uc?id=")[1].strip()
+    elif link.find("uc?export=") != -1:
+        file_id = link.split("uc?export=")[1].strip()
     url = f'{drive}/uc?export=download&id={file_id}'
     download = requests.get(url, stream=True, allow_redirects=False)
     cookies = download.cookies
