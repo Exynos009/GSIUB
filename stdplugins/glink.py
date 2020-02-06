@@ -238,7 +238,7 @@ async def _(event):
     await event.edit(f"Your current Google Drive Upload Directory : [Here]({folder_link})")
 
 
-@borg.on(admin_cmd(pattern="ghlink ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="hideglink ?(.*)", allow_sudo=True))
 async def download(dryb):
     """ For .gdrive command, upload files to google drive. """
     if not dryb.text[0].isalpha() and dryb.text[0] not in ("/", "#", "@", "!"):
