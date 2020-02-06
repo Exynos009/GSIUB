@@ -49,3 +49,4 @@ auto-openvpn
 kwot
 programmingquotes
 PyPDF2
+passwordgenerator
