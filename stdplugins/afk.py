@@ -23,9 +23,7 @@ async def set_not_afk(event):
         except Exception as e:  # pylint:disable=C0103,W0703
             await borg.send_message(  # pylint:disable=E0602
                 event.chat_id,
-                "Dekho lodu , heroku vars mei `PRIVATE_GROUP_BOT_API_ID` dalo " + \
-                "varna bsdk afk kaam nahi karega " + \
-                "Pornhub Repo mein\n\n `{}`".format(str(e)),
+                "⬛⬛⬛⬛⬛⬛⬛\n**User Is Back**\n**Reason:** Online\n⬛⬛⬛⬛⬛⬛⬛".format(str(e)),
                 reply_to=event.message.id,
                 silent=True
             )
