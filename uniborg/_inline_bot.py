@@ -115,7 +115,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 **Stars:**  Ravana @r4v4n4
 [Read More ...](https://da.gd/qGtPI)""",
                 buttons=[
-                    [custom.Button.url("Open On IMDB ▶️", "https://da.gd/BPWif")]
+                    [custom.Button.url("Open On IMDB ▶️", "https://da.gd/o5Yy")]
                 ],
                 link_preview=True
                 )
