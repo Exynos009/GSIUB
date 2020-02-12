@@ -169,16 +169,16 @@ Bots: {}
 None: {}"""
         await event.edit(required_string.format(c, p, d, y, m, w, o, q, r, b, n))
         await asyncio.sleep(5)
-    await event.edit("""Total: {} users
-Deleted Accounts: {}
-UserStatusEmpty: {}
-UserStatusLastMonth: {}
-UserStatusLastWeek: {}
-UserStatusOffline: {}
-UserStatusOnline: {}
-UserStatusRecently: {}
-Bots: {}
-None: {}""".format(p, d, y, m, w, o, q, r, b, n))
+    await event.edit("""Total= {} users
+Number Of Deleted Accounts= {}
+Status: Empty= {}
+      : Last Month= {}
+      : Last Week= {}
+      : Offline= {}
+      : Online= {}
+      : Recently= {}
+Number Of Bots= {}
+Unidentified= {}""".format(p, d, y, m, w, o, q, r, b, n))
 
 
 async def ban_user(chat_id, i, rights):
