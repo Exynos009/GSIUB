@@ -9,8 +9,8 @@ This Module Needs CoffeeHouse API to work. so Join https://telegram.dog/Intelliv
 This Module also Needs DB_URI For Storage of Some Data So make sure you have that too.
 
 Credits:
-@Hackintosh5 (for inspiring me to write this module)
-@Zero_cool7870 (For Writing The Original Module)
+Hackintosh5 (for inspiring me to write this module)
+Zero_cool7870 (For Writing The Original Module)
 Zi Xing (For CoffeeHouse API)"""
 
 
@@ -110,7 +110,7 @@ async def on_new_message(event):
                 logger.info(add_s(user_id, chat_id, session_id, session_expires))
             # Try to think a thought.
             try:
-                async with event.client.action(event.chat_id, "typing"):
+                async with event.client.action(event.chat_id, "location"):
                     await asyncio.sleep(random.randint(6, 10))
                     output = api_client.think_thought(session_id, query)
                     await event.reply("💫"+output)
