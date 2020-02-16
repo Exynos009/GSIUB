@@ -52,3 +52,4 @@ passwordgenerator
 aioschedule
 feedparser
 apscheduler
+spamwatch
