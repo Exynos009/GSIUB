@@ -51,3 +51,4 @@ PyPDF2
 passwordgenerator
 aioschedule
 feedparser
+apscheduler
