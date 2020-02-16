@@ -162,7 +162,7 @@ async def remove_url_(event):
     else:
         await event.edit("URL missing")
 
-
+@borg.on(events.NewMessage(func=lambda e: e.is_group))
 async def rss_update(event):
     user_data = get_all()
     entity=await borg.get_input_entity(Config.RSS_POST_MSG_GROUP_ID)
