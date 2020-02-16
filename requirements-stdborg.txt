@@ -50,3 +50,4 @@ programmingquotes
 PyPDF2
 passwordgenerator
 aioschedule
+feedparser
