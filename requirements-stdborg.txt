@@ -49,3 +49,4 @@ kwot
 programmingquotes
 PyPDF2
 passwordgenerator
+aioschedule
