@@ -53,7 +53,7 @@ async def carbon_api(e):
    driver.find_element_by_xpath("//button[contains(text(),'4x')]").click()
    sleep(5)
    await e.edit("⬛⬛⬛⬜⬜")
-   driver.find_element_by_xpath("//button[contains(text(),'WEBP')]").click()
+   driver.find_element_by_xpath("//button[contains(text(),'PNG')]").click()
    sleep(5) #Waiting for downloading
 
    await e.edit("⬛⬛⬛⬛⬛")
@@ -63,7 +63,7 @@ async def carbon_api(e):
          e.chat_id,
          file,
          caption="Karbon1 by [@r4v4n4](https://www.github.com/ravana69/pornhub)",
-         force_document=True,
+         force_document=False,
          reply_to=e.message.reply_to_msg_id,
          )
 
