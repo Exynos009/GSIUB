@@ -1,7 +1,6 @@
 """Upload local Files to gDrive
 Syntax:
 .gdrive
-.ghdrive (does not show link)
 .sdrive
 .gdir
 .dfolder
@@ -432,73 +431,3 @@ async def gdrive_search(http, search_query):
             msg += str(e)
             break
     return msg
-
-
-@borg.on(admin_cmd(pattern="ghdrive ?(.*)", allow_sudo=True))
-async def _(event):
-    if event.fwd_from:
-        return
-    mone = await event.reply("Processing hidden G-Drive Download...")
-    if CLIENT_ID is None or CLIENT_SECRET is None:
-        await mone.edit("This module requires credentials from https://da.gd/so63O. Aborting!")
-        return
-    if Config.PRIVATE_GROUP_BOT_API_ID is None:
-        await event.edit("Please set the required environment variable `PRIVATE_GROUP_BOT_API_ID` for this plugin to work")
-        return
-    input_str = event.pattern_match.group(1)
-    if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
-    required_file_name = None
-    start = datetime.now()
-    if event.reply_to_msg_id and not input_str:
-        reply_message = await event.get_reply_message()
-        try:
-            c_time = time.time()
-            downloaded_file_name = await borg.download_media(
-                reply_message,
-                Config.TMP_DOWNLOAD_DIRECTORY,
-                progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, mone, c_time, "trying to download")
-                )
-            )
-        except Exception as e:  # pylint:disable=C0103,W0703
-            await mone.edit(str(e))
-            return False
-        else:
-            end = datetime.now()
-            ms = (end - start).seconds
-            required_file_name = downloaded_file_name
-            await mone.edit("Downloaded to `{}` in {} seconds.".format(downloaded_file_name, ms))
-    elif input_str:
-        input_str = input_str.strip()
-        if os.path.exists(input_str):
-            end = datetime.now()
-            ms = (end - start).seconds
-            required_file_name = input_str
-            await mone.edit("Found `{}` in {} seconds.".format(input_str, ms))
-        else:
-            await mone.edit("File Not found in local server. Give me a file path :((")
-            return False
-    # logger.info(required_file_name)
-    if required_file_name:
-        #
-        if Config.AUTH_TOKEN_DATA is not None:
-            with open(G_DRIVE_TOKEN_FILE, "w") as t_file:
-                t_file.write(Config.AUTH_TOKEN_DATA)
-        # Check if token file exists, if not create it by requesting authorization code
-        storage = None
-        if not os.path.isfile(G_DRIVE_TOKEN_FILE):
-            storage = await create_token_file(G_DRIVE_TOKEN_FILE, event)
-        http = authorize(G_DRIVE_TOKEN_FILE, storage)
-        # Authorize, get file parameters, upload file and print out result URL for download
-        # http = authorize(G_DRIVE_TOKEN_FILE, None)
-        file_name, mime_type = file_ops(required_file_name)
-        # required_file_name will have the full path
-        # Sometimes API fails to retrieve starting URI, we wrap it.
-        try:
-            g_drive_link = await upload_file(http, required_file_name, file_name, mime_type, mone, G_DRIVE_F_PARENT_ID)
-            await mone.edit(f"**🔥Encrypted G-Drive🔥** \n File Name: {file_name} \nHere is your Google Drive link: **Hidden Link**")
-        except Exception as e:
-            await mone.edit(f"Exception occurred while uploading to gDrive {e}")
-    else:
-        await mone.edit("File Not found in local server. Give me a file path :((")
