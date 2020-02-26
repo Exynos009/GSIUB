@@ -33,7 +33,7 @@ Location: {}
 Bio: {}
 Profile Created: {}""".format(name, html_url, gh_type, company, blog, location, bio, created_at),
             file=avatar_url,
-            force_document=False,
+            force_document=True,
             allow_cache=False,
             reply_to=event
         )
