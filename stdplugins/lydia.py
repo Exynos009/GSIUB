@@ -7,26 +7,23 @@
 Description: A module that Act as a chatbot and chat with a User/other Bot.
 This Module Needs CoffeeHouse API to work. so Join https://telegram.dog/IntellivoidDev and send #activateapi and follow instructions.
 This Module also Needs DB_URI For Storage of Some Data So make sure you have that too.
-
-Credits:
-Hackintosh5 (for inspiring me to write this module)
-Zero_cool7870 (For Writing The Original Module)
-Zi Xing (For CoffeeHouse API)"""
+"""
 
 
-import coffeehouse as cf
-
+from coffeehouse.lydia import LydiaAI
+from coffeehouse.api import API
 import asyncio
 import io
-import random
 from sql_helpers.lydia_ai_sql import get_s, get_all_s, add_s, remove_s
 from time import time
 from uniborg.util import admin_cmd
 
 if Config.LYDIA_API is not None:
     api_key = Config.LYDIA_API
-    # Initialise client
-    api_client = cf.API(api_key)
+    # Create the coffeehouse API
+    coffeehouse_api = API(api_key)
+    # Create Lydia instance
+    lydia = LydiaAI(coffeehouse_api)
 
 
 @borg.on(admin_cmd(pattern="(e|d|l)ai", allow_sudo=True))
@@ -41,26 +38,31 @@ async def lydia_disable_enable(event):
         reply_msg = await event.get_reply_message()
         user_id = reply_msg.from_id
         chat_id = event.chat_id
-        await event.edit("hoi :)")
+        await event.edit("hoi")
         if input_str == "e":
-            session = api_client.create_session()
+            # Create a new chat session (Like a conversation)
+            session = lydia.create_session()
             logger.info(session)
+            # logger.info("Session ID: {0}".format(session.id))
+            # logger.info("Session Available: {0}".format(str(session.available)))
+            # logger.info("Session Language: {0}".format(str(session.language)))
+            # logger.info("Session Expires: {0}".format(str(session.expires)))
             logger.info(add_s(user_id, chat_id, session.id, session.expires))
-            await event.edit(f"hi :)")
+            await event.edit(f"hi")
         elif input_str == "d":
             logger.info(remove_s(user_id, chat_id))
-            await event.edit(f"__signal lost__")
+            await event.edit(f"[__signal lost__](tg://user?id={user_id})")
         elif input_str == "l":
             lsts = get_all_s()
             if len(lsts) > 0:
-                output_str = "Lydia AI enabled users:\n\n"
+                output_str = "AI enabled users:\n\n"
                 for lydia_ai in lsts:
                     output_str += f"[user](tg://user?id={lydia_ai.user_id}) in chat `{lydia_ai.chat_id}`\n"
             else:
                 output_str = "no Lydia AI enabled users / chats. Start by replying `.enacf` to any user in any chat!"
             if len(output_str) > Config.MAX_MESSAGE_SIZE_LIMIT:
                 with io.BytesIO(str.encode(output_str)) as out_file:
-                    out_file.name = "@r4v4n4_lydia_ai.text"
+                    out_file.name = "lydia_ai.text"
                     await event.client.send_file(
                         event.chat_id,
                         out_file,
@@ -103,7 +105,7 @@ async def on_new_message(event):
             # then there's an issue with the API, Auth or Server.
             if session_expires < time():
                 # re-generate session
-                session = api_client.create_session()
+                session = lydia.create_session()
                 logger.info(session)
                 session_id = session.id
                 session_expires = session.expires
@@ -111,8 +113,8 @@ async def on_new_message(event):
             # Try to think a thought.
             try:
                 async with event.client.action(event.chat_id, "location"):
-                    await asyncio.sleep(random.randint(6, 10))
-                    output = api_client.think_thought(session_id, query)
+                    await asyncio.sleep(5)
+                    output = lydia.think_thought(session_id, query)
                     await event.reply("💫"+output)
             except cf.exception.CoffeeHouseError as e:
                 logger.info(str(e))
