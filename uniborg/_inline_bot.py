@@ -126,9 +126,9 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 **Verified Account:** ✅
 **Official Website:** https://ravanaisdrunk.site.live [⠀](https://telegra.ph/file/b0604ea53360cd3858ec5.mp4)
 
-**Pithun 3.7.4 (default, Sep 12 2019, 01:19:52)** 
+**Pithun 3.8.2 (default, Feb 27 2020, 21:41:26)** 
 **[GCC 7.4.0]**
-**Talethrun 1.10.10**
+**Talethrun 1.11.3**
 
 **Custom Built Fork:** https://github.com/ravana69/Pornhub""",
                 buttons=[
