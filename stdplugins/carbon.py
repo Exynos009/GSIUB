@@ -63,7 +63,7 @@ async def carbon_api(e):
          e.chat_id,
          file,
          caption="Carbon by [@r4v4n4](https://www.github.com/ravana69/pornhub)",
-         force_document=True,
+         force_document=False,
          reply_to=e.message.reply_to_msg_id,
          )
 
