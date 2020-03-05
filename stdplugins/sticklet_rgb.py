@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd(pattern="slet (.*)"))
+@borg.on(admin_cmd(pattern="rlet (.*)"))
 async def sticklet(event):
     R = random.randint(0,256)
     G = random.randint(0,256)
