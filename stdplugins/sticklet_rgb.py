@@ -48,5 +48,4 @@ async def sticklet(event):
         reply_message = await event.get_reply_message()
         await reply_message.reply(await event.client.send_file(event.chat_id, image_stream))
     else:
-        await event.reply(await event.client.send_file(event.chat_id, image_stream))
     await event.delete()
