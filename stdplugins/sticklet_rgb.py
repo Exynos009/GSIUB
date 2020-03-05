@@ -43,9 +43,4 @@ async def sticklet(event):
     image.save(image_stream, "WebP")
     image_stream.seek(0)
 
-    reply_message = None
-    if event.reply_to_msg_id:
-        reply_message = await event.get_reply_message()
-        await reply_message.reply(await event.client.send_file(event.chat_id, image_stream))
-    else:
-    await event.delete()
+    await event.client.send_file(event.chat_id, image_stream)
