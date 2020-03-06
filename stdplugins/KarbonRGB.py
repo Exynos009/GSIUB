@@ -63,8 +63,8 @@ async def carbon_api(e):
    await e.client.send_file(
          e.chat_id,
          file,
-         caption="RGB Karbon by [@PhycoNinja13b](https://github.com/Phyco-Ninja/UniNinja)",
-         force_document=True,
+         caption="added RGB Karbon for no fucking reason",
+         force_document=False,
          reply_to=e.message.reply_to_msg_id,
          )
 
