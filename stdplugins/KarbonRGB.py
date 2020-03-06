@@ -1,5 +1,5 @@
 """Carbon Scraper Plugin for Userbot. //text in creative way.
-usage: .kargb //as a reply to any text message
+usage: .karb //as a reply to any text message
 
 Thanks to @r4v4n4 for vars,,, Random RGB feature by @PhycoNinja13b"""
 
@@ -94,12 +94,12 @@ async def carbon_api(e):
 
    await e.edit("⬛⬛⬛⬛⬛")
    file = './carbon.png'
-   await e.edit("✅RGB Karbon Completed, Uploading Karbon✅")
+   await e.edit("✅RGB Karbon Completed, Uploading RGB Karbon✅")
    await e.client.send_file(
          e.chat_id,
          file,
-         caption="RGB Karbon by [@PhycoNinja13b](https://github.com/Phyco-Ninja/UniNinja)",
-         force_document=True,
+         caption="RGB Karbon cause y not",
+         force_document=False,
          reply_to=e.message.reply_to_msg_id,
          )
 
