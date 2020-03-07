@@ -110,4 +110,4 @@ async def carbon_api(e):
    
      os.remove(kpp)
      os.remove(file)
-     await asyncio.sleep(90)
+     await asyncio.sleep(200)
