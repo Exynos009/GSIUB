@@ -68,7 +68,7 @@ async def carbon_api(e):
    #await e.edit("⬜⬜⬜⬜⬜")
      CARBON = 'https://carbon.now.sh/?bg=rgba({R}%2C{G}%2C{B}%2C1)&t={T}&wt=none&l=auto&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Fira%20Code&fs=14px&lh=152%25&si=false&es=2x&wm=false&code={code}'
      CARBONLANG = "en"
-     textx = datetime.now().strftime(" Pyaar ek dhokha hai, muthbaazi fir ek bahana hai \n  ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡\n      Time: %H¦%M¦%S \n      Date: %d/%m/%y")
+     textx = datetime.now().strftime(" Owner: @r4v4n4 \n  ⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡\n      Time: %H¦%M¦%S \n      Date: %d/%m/%y")
      pcode = e.text
      if pcode[8:]:
            pcode = str(pcode[8:])
