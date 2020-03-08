@@ -70,6 +70,6 @@ async def autopic(event):
             ))
             os.remove(photo)
             
-            await asyncio.sleep(50)
+            await asyncio.sleep(15)
         except:
             return
