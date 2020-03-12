@@ -1,5 +1,6 @@
 # Random RGB Sticklet by @PhycoNinja13b
-
+#Exclusive for My personal Repo
+#Requirement of this plugin is very high (Kumbhkaran ki aulad) 
 
 import io
 import textwrap
@@ -12,9 +13,11 @@ from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="srgb (.*)"))
 async def sticklet(event):
+    
     R = random.randint(0,256)
     G = random.randint(0,256)
     B = random.randint(0,256)
+    
     sticktext = event.pattern_match.group(1)
 
     if not sticktext:
@@ -29,11 +32,11 @@ async def sticklet(event):
     image = Image.new("RGBA", (512, 512), (255, 255, 255, 0))
     draw = ImageDraw.Draw(image)
     fontsize = 230
-    font = ImageFont.truetype("Fonts/AlouettePersonalUse-PKG4P.ttf", size=fontsize)
+    font = ImageFont.truetype("Fonts/Gardenparty-p0MD.ttf", size=fontsize)
 
     while draw.multiline_textsize(sticktext, font=font) > (512, 512):
         fontsize -= 3
-        font = ImageFont.truetype("Fonts/Painter-LxXg.ttf", size=fontsize)
+        font = ImageFont.truetype("Fonts/Gardenparty-p0MD.ttf", size=fontsize)
 
     width, height = draw.multiline_textsize(sticktext, font=font)
     draw.multiline_text(((512-width)/2,(512-height)/2), sticktext, font=font, fill=(R, G, B))
