@@ -1,6 +1,8 @@
 # Random RGB Sticklet by @PhycoNinja13b
+
 #Exclusive for My personal Repo
-#Requirement of this plugin is very high (Kumbhkaran ki aulad) 
+#Requirement of this plugin is very high (Kumbhkaran ki aulad)
+#Dare To edit this part! U will be tored apart! >>Really Nibba<< 
 
 import io
 import textwrap
@@ -17,7 +19,7 @@ async def sticklet(event):
     R = random.randint(0,256)
     G = random.randint(0,256)
     B = random.randint(0,256)
-    
+    FC = random.randint(1,66)
     sticktext = event.pattern_match.group(1)
 
     if not sticktext:
@@ -32,11 +34,43 @@ async def sticklet(event):
     image = Image.new("RGBA", (512, 512), (255, 255, 255, 0))
     draw = ImageDraw.Draw(image)
     fontsize = 230
-    font = ImageFont.truetype("Fonts/Gardenparty-p0MD.ttf", size=fontsize)
+
+    if FC==1:
+      FONT_FILE = "Fonts/ActionNowPersonalUseRegular-nRvGV.ttf"
+    if FC==2:
+      FONT_FILE = "Fonts/AlouettePersonalUse-PKG4P.ttf"
+    if FC==3:
+      FONT_FILE = "Fonts/CakeNom-87Y0.ttf"
+    if FC==4:
+      FONT_FILE = "Fonts/Candyinc-9Gl2.otf"
+    if FC==5:
+      FONT_FILE = "Fonts/ConfettiStream-A6o6.ttf"
+    if FC==6:
+      FONT_FILE = "Fonts/KgHappyShadows-7KqA.ttf"
+    if FC==7:
+      FONT_FILE = "Fonts/Lsmiserableandmagical-3jDy.otf"
+    if FC==8:
+      FONT_FILE = "Fonts/MarvelousScriptDemo-7lGV.otf"
+    if FC==9:
+      FONT_FILE = "Fonts/MyFontAddictionRegular-nEWV.ttf"
+    if FC==10:
+      FONT_FILE = "Fonts/NewfontRegular-8An0.ttf"
+    if FC==11:
+      FONT_FILE = "Fonts/Painter-LxXg.ttf"
+    if FC==12:
+      FONT_FILE = "Fonts/PaperSign-JRRda.ttf"
+    if FC==13:
+      FONT_FILE = "Fonts/Ramadhankarim-K6WD.otf"
+    if FC==14:   
+      FONT_FILE = "Fonts/SweetNovember-n6O1.ttf"
+    if FC==15:
+      FONT_FILE = "Fonts/Variety-vjZ4.ttf"
+
+    font = ImageFont.truetype(FONT_FILE, size=fontsize)
 
     while draw.multiline_textsize(sticktext, font=font) > (512, 512):
         fontsize -= 3
-        font = ImageFont.truetype("Fonts/Gardenparty-p0MD.ttf", size=fontsize)
+        font = ImageFont.truetype(FONT_FILE, size=fontsize)
 
     width, height = draw.multiline_textsize(sticktext, font=font)
     draw.multiline_text(((512-width)/2,(512-height)/2), sticktext, font=font, fill=(R, G, B))
