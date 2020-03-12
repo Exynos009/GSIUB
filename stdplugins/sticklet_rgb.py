@@ -19,7 +19,7 @@ async def sticklet(event):
     R = random.randint(0,256)
     G = random.randint(0,256)
     B = random.randint(0,256)
-    FC = random.randint(1,15)
+    FC = random.randint(1,16)
     sticktext = event.pattern_match.group(1)
 
     if not sticktext:
