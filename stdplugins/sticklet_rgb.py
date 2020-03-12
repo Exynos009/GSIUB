@@ -29,7 +29,7 @@ async def sticklet(event):
     image = Image.new("RGBA", (512, 512), (255, 255, 255, 0))
     draw = ImageDraw.Draw(image)
     fontsize = 230
-    font = ImageFont.truetype("Fonts/AlouettePersonalUse-PKG4P.ttf, size=fontsize)
+    font = ImageFont.truetype("Fonts/AlouettePersonalUse-PKG4P.ttf", size=fontsize)
 
     while draw.multiline_textsize(sticktext, font=font) > (512, 512):
         fontsize -= 3
