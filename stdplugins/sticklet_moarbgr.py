@@ -1,5 +1,6 @@
 # Random RGB Sticklet by @PhycoNinja13b
 # modified by @UniBorg
+# no credit given to @r4v4n4 , maybe they are evil......
 
 import io
 import os
@@ -11,7 +12,7 @@ from telethon.tl.types import InputMessagesFilterDocument
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="srgb (.*)"))
+@borg.on(admin_cmd(pattern="rstick (.*)"))
 async def sticklet(event):
     R = random.randint(0,256)
     G = random.randint(0,256)
@@ -34,7 +35,7 @@ async def sticklet(event):
     draw = ImageDraw.Draw(image)
     fontsize = 230
 
-    FONT_FILE = await get_font_file(event.client, "@FontRes")
+    FONT_FILE = await get_font_file(event.client, "@ravanafonts")
 
     font = ImageFont.truetype(FONT_FILE, size=fontsize)
 
@@ -46,7 +47,7 @@ async def sticklet(event):
     draw.multiline_text(((512-width)/2,(512-height)/2), sticktext, font=font, fill=(R, G, B))
 
     image_stream = io.BytesIO()
-    image_stream.name = "@UniBorg.webp"
+    image_stream.name = "@r4v4n4.webp"
     image.save(image_stream, "WebP")
     image_stream.seek(0)
 
