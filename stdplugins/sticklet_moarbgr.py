@@ -52,7 +52,7 @@ async def sticklet(event):
     image_stream.seek(0)
 
     # finally, reply the sticker
-    await event.reply("https://t.me/UniBorg/95", file=image_stream)
+    await event.client.send_file(event.chat_id, image_stream, caption="Pornhub", reply_to=event.message.reply_to_msg_id)
 
     # cleanup
     try:
