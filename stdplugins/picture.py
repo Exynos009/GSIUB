@@ -6,7 +6,7 @@ Syntax: `.pic <Name>` or `.pic (replied message)`
 This is a plugin installed on pornhub repo by @r4v4n4
 """
 
-from userbot.utils.google_images_download import googleimagesdownload
+from google_images_download import googleimagesdownload
 import os
 import shutil
 from re import findall
