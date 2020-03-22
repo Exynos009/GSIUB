@@ -53,5 +53,4 @@ aioschedule
 feedparser
 apscheduler
 spamwatch
-coronavirus
 covid
