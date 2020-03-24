@@ -1,6 +1,6 @@
 """
 Time In Profile Pic.....
-Command: `.Bloom`
+Command: `.bloom`
 
 Hmmmm U need to config RAVANA_LEELA var in Heroku with any telegraph image link
 
@@ -66,6 +66,6 @@ async def autopic(event):
                 file
             ))
             os.remove(photo)
-            await asyncio.sleep(50)
+            await asyncio.sleep(15)
         except:
             return
