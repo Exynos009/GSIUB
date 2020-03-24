@@ -56,9 +56,9 @@ async def autopic(event):
         img = Image.open(photo)
         drawn_text = ImageDraw.Draw(img)
         fnt = ImageFont.truetype(FONT_FILE_TO_USE, 60)
-        ofnt = ImageFont.truetype(FONT_FILE_TO_USE, 20)
+        ofnt = ImageFont.truetype(FONT_FILE_TO_USE, 100)
         drawn_text.text((200, 250), current_time, font=fnt, fill=(FR,FG,FB))
-        drawn_text.text((200, 250), "© @R4V4N4", font = ofnt, fill=(FR,FG,FB))
+        drawn_text.text((250, 250), "© @R4V4N4", font = ofnt, fill=(FR,FG,FB))
         img.save(photo)
         file = await event.client.upload_file(photo)  # pylint:disable=E0602
         try:
