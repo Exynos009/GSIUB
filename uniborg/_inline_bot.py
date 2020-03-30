@@ -138,7 +138,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                         "❕❗Deploy Me❗❕", "https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fravana69%2FPornHub%2F&template=https%3A%2F%2Fgithub.com%2Fravana69%2FPornHub%2F")],
                     [custom.Button.url("🔰Update Fork🔰", "tg://need_update_for_some_feature"), custom.Button.url(
                         "✳️Fork Boost✳️", "tg://some_unsupported_feature"), custom.Button.url(
-                        "♻️Refresh Heroku♻️", "tg://chutiya")]
+                        "📤Cloud Torrent📥", "https://github.com/ravana69/cloudtorrent")]
                 ],
                 link_preview=True
             )
@@ -153,7 +153,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             current_page_number = int(
                 event.data_match.group(1).decode("UTF-8"))
             buttons = paginate_help(
-                current_page_number + 1, borg._plugins, "helpme")
+                current_page_number + 1, borg._plugins, "info")
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
         else:
