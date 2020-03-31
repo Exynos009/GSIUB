@@ -68,7 +68,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         query = event.text
         if event.query.user_id == borg.uid and query.startswith("@UniBorg"):
             rev_text = query[::-1]
-            buttons = paginate_help(0, borg._plugins, "helpme")
+            buttons = paginate_help(0, borg._plugins, "info")
             result = builder.article(
                 "© @UniBorg",
                 text="{}\nℂ𝕦𝕣𝕣𝕖𝕟𝕥𝕝𝕪 𝕃𝕠𝕒𝕕𝕖𝕕 ℙ𝕝𝕦𝕘𝕚𝕟𝕤: {}".format(
@@ -146,7 +146,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
 
 
     @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"helpme_next\((.+?)\)")
+        data=re.compile(b"info_next\((.+?)\)")
     ))
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == borg.uid:  # pylint:disable=E0602
@@ -161,7 +161,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
     @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-        data=re.compile(b"helpme_prev\((.+?)\)")
+        data=re.compile(b"info_prev\((.+?)\)")
     ))
     async def on_plug_in_callback_query_handler(event):
         if event.query.user_id == borg.uid:  # pylint:disable=E0602
@@ -170,7 +170,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             buttons = paginate_help(
                 current_page_number - 1,
                 borg._plugins,  # pylint:disable=E0602
-                "helpme"
+                "info"
             )
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
