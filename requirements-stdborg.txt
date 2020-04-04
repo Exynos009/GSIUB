@@ -54,3 +54,4 @@ feedparser
 apscheduler
 spamwatch
 covid
+covid-cli
