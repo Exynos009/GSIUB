@@ -30,7 +30,7 @@ async def _(event):
 
     lang, code = input_str.split(DELIMITER)
 
-    url = "http://apikuu.herokuapp.com/api/v0/sakty/karbon"
+    url = "http://www.suka.ml/api/v0/sakty/karbon"
 
     a = requests.get(url, params={
 
