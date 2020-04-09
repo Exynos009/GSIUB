@@ -1,6 +1,6 @@
 telethon
 pip
-hastebin.py
+hastebin.py==0.2
 async_generator
 pybase64
 zalgo_text
