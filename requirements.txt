@@ -1,4 +1,4 @@
-Telethon
+telethon
 pip
 hastebin.py
 async_generator
