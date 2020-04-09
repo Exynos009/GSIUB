@@ -1,4 +1,4 @@
-telethon
+git+https://github.com/LonamiWebs/Telethon
 pip
 async_generator
 pybase64
