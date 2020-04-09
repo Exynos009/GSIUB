@@ -1,4 +1,4 @@
-git+https://github.com/LonamiWebs/Telethon
+Telethon
 pip
 hastebin.py
 async_generator
