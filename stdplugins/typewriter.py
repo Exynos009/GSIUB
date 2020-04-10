@@ -5,12 +5,12 @@ import asyncio
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="typewriter (.*)"))
+@borg.on(admin_cmd(pattern="type (.*)"))
 async def _(event):
     if event.fwd_from:
         return
     # https://t.me/AnotherGroup/176551
-    input_str = event.pattern_match.group(1)
+    input_str = event.pattern_match.group(0)
     shiiinabot = "\u2060"
     for i in range(601):
         shiiinabot += "\u2060"
@@ -19,7 +19,7 @@ async def _(event):
     except Exception as e:
         logger.warn(str(e))
     typing_symbol = "|"
-    DELAY_BETWEEN_EDITS = 0.3
+    DELAY_BETWEEN_EDITS = 0.1
     previous_text = ""
     await event.edit(typing_symbol)
     await asyncio.sleep(DELAY_BETWEEN_EDITS)
