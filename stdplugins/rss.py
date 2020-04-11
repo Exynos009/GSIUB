@@ -165,74 +165,75 @@ async def remove_url_(event):
 @borg.on(events.NewMessage(func=lambda e: e.is_group))
 async def rss_update(event):
     user_data = get_all()
-    entity=await borg.get_input_entity(Config.RSS_POST_MSG_GROUP_ID)
-    # this loop checks for every row in the DB
-    for row in user_data:
-        row_id = row.id
-        tg_chat_id = row.chat_id
-        tg_feed_link = row.feed_link
+    if Config.RSS_POST_MSG_GROUP_ID != None:
+        entity=await borg.get_input_entity(Config.RSS_POST_MSG_GROUP_ID)
+        # this loop checks for every row in the DB
+        for row in user_data:
+            row_id = row.id
+            tg_chat_id = row.chat_id
+            tg_feed_link = row.feed_link
 
-        feed_processed = parse(tg_feed_link)
+            feed_processed = parse(tg_feed_link)
 
-        tg_old_entry_link = row.old_entry_link
+            tg_old_entry_link = row.old_entry_link
 
-        new_entry_links = []
-        new_entry_titles = []
+            new_entry_links = []
+            new_entry_titles = []
 
-        # this loop checks for every entry from the RSS Feed link from the DB row
-        for entry in feed_processed.entries:
-            # check if there are any new updates to the RSS Feed from the old entry
-            if entry.link != tg_old_entry_link:
-                new_entry_links.append(entry.link)
-                new_entry_titles.append(entry.title)
+            # this loop checks for every entry from the RSS Feed link from the DB row
+            for entry in feed_processed.entries:
+                # check if there are any new updates to the RSS Feed from the old entry
+                if entry.link != tg_old_entry_link:
+                    new_entry_links.append(entry.link)
+                    new_entry_titles.append(entry.title)
+                else:
+                    break
+
+            # check if there's any new entries queued from the last check
+            if new_entry_links:
+                update_url(row_id, new_entry_links)
             else:
-                break
+                pass
 
-        # check if there's any new entries queued from the last check
-        if new_entry_links:
-            update_url(row_id, new_entry_links)
-        else:
-            pass
+            if len(new_entry_links) < 5:
+                # this loop sends every new update to each user from each group based on the DB entries
+                for link, title in zip(reversed(new_entry_links), reversed(new_entry_titles)):
+                    final_message = "<b>{}</b>\n\n{}".format(html.escape(title), html.escape(link))
 
-        if len(new_entry_links) < 5:
-            # this loop sends every new update to each user from each group based on the DB entries
-            for link, title in zip(reversed(new_entry_links), reversed(new_entry_titles)):
-                final_message = "<b>{}</b>\n\n{}".format(html.escape(title), html.escape(link))
+                    if len(final_message) <= Config.MAX_MESSAGE_SIZE_LIMIT:
+                        await borg.send_message(
+                            entity=entity, 
+                            message=final_message, 
+                            parse_mode='html'
+                        )
+                    else:
+                        await borg.send_message(
+                            entity=entity, 
+                            message="<b>Warning:</b> The message is too long to be sent",
+                            parse_mode='html'
+                        )
+            else:
+                for link, title in zip(reversed(new_entry_links[-5:]), reversed(new_entry_titles[-5:])):
+                    final_message = "<b>{}</b>\n\n{}".format(html.escape(title), html.escape(link))
 
-                if len(final_message) <= Config.MAX_MESSAGE_SIZE_LIMIT:
-                    await borg.send_message(
-                        entity=entity, 
-                        message=final_message, 
-                        parse_mode='html'
-                    )
-                else:
-                    await borg.send_message(
-                        entity=entity, 
-                        message="<b>Warning:</b> The message is too long to be sent",
-                        parse_mode='html'
-                    )
-        else:
-            for link, title in zip(reversed(new_entry_links[-5:]), reversed(new_entry_titles[-5:])):
-                final_message = "<b>{}</b>\n\n{}".format(html.escape(title), html.escape(link))
+                    if len(final_message) <= Config.MAX_MESSAGE_SIZE_LIMIT:
+                        await borg.send_message(
+                            entity=entity, 
+                            message=final_message, 
+                            parse_mode='html'
+                        )
+                    else:
+                        await borg.send_message(
+                            entity=entity, 
+                            message="<b>Warning:</b> The message is too long to be sent",
+                            parse_mode='html'
+                        )
 
-                if len(final_message) <= Config.MAX_MESSAGE_SIZE_LIMIT:
-                    await borg.send_message(
-                        entity=entity, 
-                        message=final_message, 
-                        parse_mode='html'
-                    )
-                else:
-                    await borg.send_message(
-                        entity=entity, 
-                        message="<b>Warning:</b> The message is too long to be sent",
-                        parse_mode='html'
-                    )
-
-            await borg.send_message(
-                entity=entity, 
-                parse_mode='html',
-                message="<b>Warning: </b>{} occurrences have been left out to prevent spam".format(len(new_entry_links) - 5)
-            )
+                await borg.send_message(
+                    entity=entity, 
+                    parse_mode='html',
+                    message="<b>Warning: </b>{} occurrences have been left out to prevent spam".format(len(new_entry_links) - 5)
+                )
 
 
 def rss_set(event):
