@@ -26,7 +26,7 @@ import asyncio
 import shutil 
 import random
 
-FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+FONT_FILE_TO_USE = await get_font_file(event.client, "@ravanafonts")
 
 @borg.on(admin_cmd(pattern="bloom ?(.*)"))
 async def autopic(event): 
@@ -69,3 +69,26 @@ async def autopic(event):
             await asyncio.sleep(20)
         except:
             return
+
+    # cleanup
+    try:
+        os.remove(FONT_FILE)
+    except:
+        pass
+
+
+async def get_font_file(client, channel_id):
+    # first get the font messages
+    font_file_message_s = await client.get_messages(
+        entity=channel_id,
+        filter=InputMessagesFilterDocument,
+        # this might cause FLOOD WAIT,
+        # if used too many times
+        limit=None
+    )
+    # get a random font from the list of fonts
+    # https://docs.python.org/3/library/random.html#random.choice
+    font_file_message = random.choice(font_file_message_s)
+    # download and return the file path
+    return await client.download_media(font_file_message)
+
