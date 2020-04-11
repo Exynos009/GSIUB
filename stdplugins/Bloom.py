@@ -26,7 +26,7 @@ import asyncio
 import shutil 
 import random
 
-FONT_FILE_TO_USE = "/Fonts/DS-DIGII(1).TTF"
+FONT_FILE_TO_USE = "Fonts/DS-DIGII(1).TTF"
 
 @borg.on(admin_cmd(pattern="bloom ?(.*)"))
 async def autopic(event): 
