@@ -25,6 +25,8 @@ async def _(event):
 		)
 	# a dictionary containing the shell commands
 	CMD_WEB = {
+                "oloda": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload?token=ac0c09b75f63054c",
+                "oload": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload",
 		"anonfiles": "curl -F \"file=@{full_file_path}\" https://anonfiles.com/api/upload",
 		"transfer": "curl --upload-file \"{full_file_path}\" https://transfer.sh/{bare_local_name}",
 		"filebin": "curl -X POST --data-binary \"@{full_file_path}\" -H \"filename: {bare_local_name}\" \"https://filebin.net\"",
