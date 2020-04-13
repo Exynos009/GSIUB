@@ -61,9 +61,16 @@ async def carbon_api(e):
    textx = await e.get_reply_message()
    pcode = e.text
    if pcode[8:]:
-         pcode = str(pcode[8:])
+         pcodee = str(pcode[8:])
+         if "|" in pcodee:
+               pcode, skeme = pcodee.split("|")
+         else:
+               pcode = pcodee
+               skeme = None
    elif textx:
-         pcode = str(textx.message) # Importing message to module
+         pcode = str(textx.message) 
+         skeme = None # Importing message to module
+   code = quote_plus(pcode) # Converting to urlencoded# Importing message to module
    code = quote_plus(pcode) # Converting to urlencoded
    url = CARBON.format(code=code, R=RED, G=GREEN, B=BLUE, T=The, lang=CARBONLANG)
    chrome_options = Options()
