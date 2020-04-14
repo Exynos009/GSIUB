@@ -9,7 +9,7 @@ import json
 import os
 
 
-@borg.on(admin_cmd(pattern="webupload ?(.+?|) --(fileio|oload|anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)"))
+@borg.on(admin_cmd(pattern="webupload ?(.+?|) --(avirus|fileio|oload|anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)"))
 async def _(event):
 	await event.edit("processing ...")
 	PROCESS_RUN_TIME = 100
