@@ -1,7 +1,7 @@
 # originally created by
 # https://github.com/Total-Noob-69/X-tra-Telegram/blob/master/userbot/plugins/webupload.py
 # modified by __me__ to suit **my** needs
-"""webupload ?(.+?|) --(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles"""
+"""webupload ?(.+?|) --(fileio|oload|anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles"""
 
 from uniborg.util import admin_cmd
 import asyncio
@@ -9,7 +9,7 @@ import json
 import os
 
 
-@borg.on(admin_cmd(pattern="webupload ?(.+?|) --(oload|oloda|anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)"))
+@borg.on(admin_cmd(pattern="webupload ?(.+?|) --(fileio|oload|oloda|anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)"))
 async def _(event):
 	await event.edit("processing ...")
 	PROCESS_RUN_TIME = 100
@@ -25,6 +25,7 @@ async def _(event):
 		)
 	# a dictionary containing the shell commands
 	CMD_WEB = {
+                "fileio": "curl -F \"file=@{full_file_path}\" https://file.io",
                 "oloda": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload?token=ac0c09b75f63054c",
                 "oload": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload",
 		"anonfiles": "curl -F \"file=@{full_file_path}\" https://anonfiles.com/api/upload",
