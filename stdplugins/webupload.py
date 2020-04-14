@@ -25,7 +25,7 @@ async def _(event):
 		)
 	# a dictionary containing the shell commands
 	CMD_WEB = {
-                "avirus": "curl --request POST --url "https://www.virustotal.com/vtapi/v2/file/scan" --form "apikey=bd03c067697e73e9d06007e439489442056338a36b4d5c04e2dde3bc810debf2" --form \"file=@{full_file_path}\",
+                "avirus": "curl --request POST --url "https://www.virustotal.com/vtapi/v2/file/scan" --form "apikey=bd03c067697e73e9d06007e439489442056338a36b4d5c04e2dde3bc810debf2" --form \"file=@{full_file_path}\"",
                 "fileio": "curl -F \"file=@{full_file_path}\" https://file.io",
                 "oloda": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload?token=ac0c09b75f63054c",
                 "oload": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload",
