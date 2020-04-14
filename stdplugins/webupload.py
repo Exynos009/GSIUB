@@ -25,7 +25,7 @@ async def _(event):
 		)
 	# a dictionary containing the shell commands
 	CMD_WEB = {
-                "fileinfo": ffmpeg -i "file=@{full_file_path}",
+                "fileinfo": "ffmpeg -i \"file=@{full_file_path}\"",
                 "fileio": "curl -F \"file=@{full_file_path}\" https://file.io",
                 "oloda": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload?token=ac0c09b75f63054c",
                 "oload": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload",
