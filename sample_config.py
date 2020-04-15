@@ -153,6 +153,8 @@ class Config(object):
     SPAM_WATCH_API = os.environ.get("SPAM_WATCH_API", None)
     #
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
+    #
+    HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
 class Production(Config):
     LOGGER = False
 
