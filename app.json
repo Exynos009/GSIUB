@@ -202,6 +202,10 @@
       "description": "This is required for commit functionality to work.",
       "required": false
     },
+    "HEROKU_API_KEY": {
+      "description": "This is required to view dynos inside telegram app.",
+      "required": false
+    },
     "OPEN_LOAD_KEY": {
       "description": "I dunno but my repo needs it, u can type 100.",
       "required": false
