@@ -1,5 +1,4 @@
-"""Usage : .usage   & credit: refundisillegal"""
-"""
+"""CC- refundisillegal\nSyntax:- .usage"""
 
 import heroku3
 import asyncio
@@ -20,7 +19,7 @@ async def variable(var):
     if HEROKU_APP_NAME is not None:
         app = Heroku.app(HEROKU_APP_NAME)
     else:
-        return await var.edit("`[HEROKU]:"
+        return await var.reply("`[HEROKU]:"
                               "\nPlease setup your` **HEROKU_APP_NAME**")
     exe = var.pattern_match.group(1)
     heroku_var = app.config()
@@ -30,10 +29,10 @@ async def variable(var):
         try:
             variable = var.pattern_match.group(2).split()[0]
             if variable in heroku_var:
-                return await var.edit("**ConfigVars**:"
+                return await var.reply("**ConfigVars**:"
                                       f"\n\n**{variable}** = `{heroku_var[variable]}`\n")
             else:
-                return await var.edit("**ConfigVars**:"
+                return await var.reply("**ConfigVars**:"
                                       f"\n\n`Error:\n-> {variable} don't exists`")
         except IndexError:
             configs = prettyjson(heroku_var.to_dict(), indent=2)
@@ -62,12 +61,12 @@ async def variable(var):
         try:
             val[1]
         except IndexError:
-            return await var.edit("`.set var <config name> <value>`")
+            return await var.reply("`.set var <config name> <value>`")
         await asyncio.sleep(1.5)
         if val[0] in heroku_var:
-            await var.edit(f"**{val[0]}**  `successfully changed to`  **{val[1]}**")
+            await var.reply(f"**{val[0]}**  `successfully changed to`  **{val[1]}**")
         else:
-            await var.edit(f"**{val[0]}**  `successfully added with value: **{val[1]}**")
+            await var.reply(f"**{val[0]}**  `successfully added with value: **{val[1]}**")
         heroku_var[val[0]] = val[1]
     elif exe == "del":
         await var.edit("`Getting information to deleting variable...`")
@@ -77,10 +76,10 @@ async def variable(var):
             return await var.reply("`Please specify ConfigVars you want to delete`")
         await asyncio.sleep(1.5)
         if variable in heroku_var:
-            await var.edit(f"**{variable}**  `successfully deleted`")
+            await var.reply(f"**{variable}**  `successfully deleted`")
             del heroku_var[variable]
         else:
-            return await var.edit(f"**{variable}**  `is not exists`")
+            return await var.reply(f"**{variable}**  `is not exists`")
 
         
 @borg.on(admin_cmd(pattern="usage ?(.*)", allow_sudo=True))
@@ -127,11 +126,12 @@ async def _(event):
 
     await asyncio.sleep(1.5)
 
-    return await event.edit("**Dyno Usage**:\n\n"
+    return await event.reply("**Dyno Usage**:\n\n"
                            f" -> `Dyno usage for`  **{HEROKU_APP_NAME}**:\n"
                            f"     •  `{AppHours}`**h**  `{AppMinutes}`**m**  "
                            f"**|**  [`{AppPercentage}`**%**]"
                            "\n"
                            " -> `Dyno hours quota remaining this month`:\n"
                            f"     •  `{hours}`**h**  `{minutes}`**m**  "
-                           f"**|**  [`{percentage}`**%**]")
+                           f"**|**  [`{percentage}`**%**]"
+                           )
