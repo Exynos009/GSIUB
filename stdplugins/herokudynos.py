@@ -1,4 +1,4 @@
-"""CC- @refundisillegal\nSyntax:-\n.get var NAME\n.del var NAME\n.set var Name Value"""
+"""Usage : .usage   & credit: refundisillegal"""
 """
 
 import heroku3
@@ -134,5 +134,4 @@ async def _(event):
                            "\n"
                            " -> `Dyno hours quota remaining this month`:\n"
                            f"     •  `{hours}`**h**  `{minutes}`**m**  "
-                           f"**|**  [`{percentage}`**%**]"
-                           )
+                           f"**|**  [`{percentage}`**%**]")
