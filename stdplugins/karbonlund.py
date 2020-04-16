@@ -1,5 +1,5 @@
 """Carbon Scraper Plugin for Userbot. //text in creative way.
-usage: .kar1 //as a reply to any text message
+usage: .car //as a reply to any text message
 
 Thanks to @r4v4n4 for vars"""
 
@@ -15,7 +15,7 @@ from uniborg.util import admin_cmd
 import asyncio
 import os
 
-@borg.on(admin_cmd(pattern="kar1 ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="car ?(.*)", allow_sudo=True))
 async def carbon_api(e):
  if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
    """ A Wrapper for carbon.now.sh """
@@ -67,8 +67,8 @@ async def carbon_api(e):
    await e.client.send_file(
          e.chat_id,
          file,
-         caption="Karbon1 by [@PhycoNinja13b](https://github.com/Phyco-Ninja/UniNinja)",
-         force_document=True,
+         caption="@R4V4N4 SAYS: Kya Comment Dakun Behenchod",
+         force_document=False,
          reply_to=e.message.reply_to_msg_id,
          )
 
