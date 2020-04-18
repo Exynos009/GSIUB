@@ -1,6 +1,13 @@
-#Warning: Use this repo at your own risk
+**#Warning: Use this repo at your own risk**
 
-#click_the_photo_below_to_deploy
+**Step1: Use Termux & Get HU String.**
+
+**Step2: Use Heroku Deploy Button For Fast Deploy.**
+
+
+[![Get HU String For Userbot](https://telegra.ph/file/012e02bec79baa81490ee.jpg)](https://pornhub.ravananew.repl.run)
+
+**#click_the_photo_below_to_deploy**
 
 [![Deploy](https://telegra.ph/file/18cea3a9a7d9b3261dc1a.jpg)](https://heroku.com/deploy)
 
