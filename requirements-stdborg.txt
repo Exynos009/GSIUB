@@ -9,7 +9,7 @@ cryptg
 emoji
 googletrans
 google_images_download
-google-api-python-client
+google-api-python-client==1.8.0
 google_auth_oauthlib
 gsearch>=1.6.0
 gtts
