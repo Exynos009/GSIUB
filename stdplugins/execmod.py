@@ -1017,7 +1017,7 @@ async def _(event):
     PROCESS_RUN_TIME = 100
 #    dirname = event.pattern_match.group(1)
 #    tempdir = "localdir"
-    cmd = "covid -c India"
+    cmd = "covidcli get status "India""
 #    if dirname == tempdir:
 	
     eply_to_id = event.message.id
@@ -1057,7 +1057,7 @@ async def _(event):
     PROCESS_RUN_TIME = 100
 #    dirname = event.pattern_match.group(1)
 #    tempdir = "localdir"
-    cmd = "covid -t"
+    cmd = "covidcli get latest"
 #    if dirname == tempdir:
 	
     eply_to_id = event.message.id
