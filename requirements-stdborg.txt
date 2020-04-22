@@ -53,5 +53,4 @@ aioschedule
 feedparser
 apscheduler
 spamwatch
-covid-cli
-covidcli
+covidcli==0.1.7
