@@ -1,0 +1,2 @@
+language = "python3"
+run = "rm -rf pornhub && git clone https://github.com/ravana69/pornhub && cd pornhub && pip install telethon && pip install --upgrade pip && python3 GenerateStringSession.py && rm -rf pornhub && pip install speedtest-cli && speedtest-cli"
