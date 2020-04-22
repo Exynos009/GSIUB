@@ -1,6 +1,6 @@
 """Get Telegram Profile Picture and other information
 and set as own profile.
-Syntax: .spoof @username"""
+Syntax: .clone @username"""
 #Copy That Plugin by @ViperAdnan
 #Give credit if you are going to kang it.
 
@@ -14,7 +14,7 @@ from uniborg.util import admin_cmd
 from telethon.tl import functions
 
 
-@borg.on(admin_cmd(pattern="spoof ?(.*)"))
+@borg.on(admin_cmd(pattern="clone ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -68,7 +68,7 @@ async def _(event):
     await event.delete()
     await borg.send_message(
       event.chat_id,
-      "**🕯️LET US MERGE🕯️**",
+      "**Bro @r4v4n4 said me that my dad fcuked your mom and you were the result.**",
       reply_to=reply_message
       )
 
