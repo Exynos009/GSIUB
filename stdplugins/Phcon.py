@@ -25,7 +25,7 @@ async def _(event):
 		)
 	# a dictionary containing the shell commands
 	CMD_WEB = {
-                "battery": ".eval async with event.client.conversation("@batterylevelbot") as conv:    await conv.send_message("🔋 Battery")    r = await conv.get_response()    print(r.message)",
+                "battery": ".eval async with event.client.conversation("@batterylevelbot") as conv:\n    await conv.send_message("🔋 Battery")\n    r = await conv.get_response()\n    print(r.message)",
                 "fileio": "curl -F \"file=@{full_file_path}\" https://file.io",
                 "oloda": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload?token=ac0c09b75f63054c",
                 "oload": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload",
