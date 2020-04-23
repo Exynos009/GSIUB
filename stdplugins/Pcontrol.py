@@ -23,7 +23,6 @@ async def _(event):
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=830109936))
               await event.client.forward_messages(chat, reply_message)
               await message.reply("🔋 Battery")
-
               await asyncio.sleep(4)
           response = await response 
           except YouBlockedUserError: 
