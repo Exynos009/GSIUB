@@ -24,7 +24,6 @@ async def _(event):
               await event.client.forward_messages(chat, reply_message)
               await message.reply("🔋 Battery")
               await asyncio.sleep(4)
-          response = await response 
           except YouBlockedUserError: 
               await event.reply("`RIP Check Your Blacklist Boss`")
               return
