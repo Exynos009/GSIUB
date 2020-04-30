@@ -287,7 +287,7 @@ async def do_pm_permit_action(chat_id, event):
             silent=True
         )
         return
-    r = await event.delete()
+    r = await event.reply(UNIBORG_USER_BOT_NO_WARN)
     PM_WARNS[chat_id] += 1
     if chat_id in PREV_REPLY_MESSAGE:
         await PREV_REPLY_MESSAGE[chat_id].delete()
