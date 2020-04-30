@@ -2,4 +2,4 @@
 # can be imported in any module to make life easier.
 from sample_config import Config
 SYNTAX = {}
-BUILD = "ROOT-69x96"
+BUILD = "Root Kali Linux @ 2020.1b"
