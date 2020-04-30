@@ -30,3 +30,12 @@ def get_size(bytes, suffix="B"):
         if bytes < factor:
             return f"{bytes:.2f}{unit}{suffix}"
         bytes /= factor
+
+SYNTAX.update({
+    "help": "\
+**Requested Module --> help**\
+\n\n**Detailed usage of fuction(s):**\
+\n\n```.help```\
+\nUsage: Returns userbot's system stats, user's name (only if set).\
+"
+})
