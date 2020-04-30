@@ -14,7 +14,7 @@ async def _(event):
     if event.fwd_from:
         return
     if Config.USER is not None:
-        user = f"\n```User: {Config.user}```"
+        user = f"\n```User: {Config.User}```"
     else:
         user = "RAVANA @tharkigang"
     uname = platform.uname()
