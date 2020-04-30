@@ -155,6 +155,8 @@ class Config(object):
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     #
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
+    #
+    USER = os.environ.get("USER", None)
 class Production(Config):
     LOGGER = False
 
