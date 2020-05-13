@@ -9,7 +9,7 @@ import json
 import os
 
 
-@borg.on(admin_cmd(pattern="webupload ?(.+?|) --(mixdrop|fileinfo|fileio|oload|anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)"))
+@borg.on(admin_cmd(pattern="webupload ?(.+?|) --(invert|mixdrop|fileinfo|fileio|oload|anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)"))
 async def _(event):
 	await event.edit("processing ...")
 	PROCESS_RUN_TIME = 100
@@ -25,8 +25,9 @@ async def _(event):
 		)
 	# a dictionary containing the shell commands
 	CMD_WEB = {
+                "invert": "ffmpeg -i \"file=@{full_file_path}\" -vf lutrgb="r=negval:g=negval:b=negval" output.webp
                 "mixdrop": "curl -X POST -F 'email=1996ravana@gmail.com' -F 'key=W7iGTx6LONW58TqRAzd6' -F 'file=@{full_file_path}' https://ul.mixdrop.co/api",
-                "fileinfo": "ffmpeg -i 'file=@{full_file_path}'",
+                "fileinfo": "ffmpeg -i \"file=@{full_file_path}\"",
                 "fileio": "curl -F \"file=@{full_file_path}\" https://file.io",
                 "oloda": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload?token=ac0c09b75f63054c",
                 "oload": "curl -F \"file=@{full_file_path}\" https://api.openload.cc/upload",
