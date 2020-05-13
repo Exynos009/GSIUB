@@ -25,7 +25,7 @@ async def _(event):
 		)
 	# a dictionary containing the shell commands
 	CMD_WEB = {
-                "invert": "ffmpeg -i \"file=@{full_file_path}\" -vf lutrgb="r=negval:g=negval:b=negval" output.webp"
+                "invert": "ffmpeg -i \"file=@{full_file_path}\" -vf lutrgb="r=negval:g=negval:b=negval" output.webp",
                 "mixdrop": "curl -X POST -F 'email=1996ravana@gmail.com' -F 'key=W7iGTx6LONW58TqRAzd6' -F 'file=@{full_file_path}' https://ul.mixdrop.co/api",
                 "fileinfo": "ffmpeg -i \"file=@{full_file_path}\"",
                 "fileio": "curl -F \"file=@{full_file_path}\" https://file.io",
